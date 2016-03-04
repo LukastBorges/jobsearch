@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <panel type="primary">
+      <div class="row">
+        <div class="col-md-8">
+          <h5>{{ vm.job.title }}</h5>
+          <h6 class="text-muted">{{ vm.job.company }} - {{ vm.job.type }}/{{ vm.job.location}}</h6>
+          <p ng-bind-html="vm.job.description"></p>
+        </div>
+        <div class="col-md-4">
+          <p class="margin-top center">Created {{ vm.moment(vm.job.created_at).fromNow() }}</p>
+          <div class="centered">
+            <img ng-if="vm.prev" class="centered" ng-src="{{ vm.previewSource  }}" alt="">
+            <img class="centered" ng-src="{{ vm.job.company_logo  }}" alt="">
+          </div>
+          <p class="center">
+            <a ng-href="{{ vm.job.company_url }}">{{ vm.job.company_url }}</a>
+          </p>
+          <h5>How to apply</h5>
+          <p class="centered">{{ vm.job.how_to_apply}}</p>
+        </div>
+      </div>
+      </panel>
+  </div>
+</div>

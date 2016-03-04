@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="container">
+      <div class="preview row">
+        Preview
+        <label class="label-switch switch-primary">
+          <input type="checkbox" class="switch switch-bootstrap status" name="status" id="status" value="1" checked="unchecked" ng-model="edit">
+          <span class="lable"></span>
+        </label>
+      </div>
+
+      <ng-include src="'/app/templates/job.html?v1'" ng-show="edit"></ng-include>
+      <panel ng-hide="edit" type="primary">
+        <div class="row">
+
+          <div class="col-md-8">
+            <form class="form-horizontal" enctype="multipart/form-data">
+              <div class="row">
+                <div class="col-md-4">
+                  <select class="form-control" ng-model="vm.job.type">
+                    <option disabled="disabled" selected="selected">Job Hours</option>
+                    <option>Full Time</option>
+                    <option>Part Time</option>
+                    <option>Contract</option>
+                  </select>
+                </div>
+                <div class="col-md-4">
+                  <input type="text" class="form-control" id="inputEmail" placeholder="Location" ng-model="vm.job.location">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-11 margin-top">
+                  <input type="text" class="form-control" placeholder="Título" ng-model="vm.job.title">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-11">
+                  <div text-angular ng-model="vm.job.description" placeholder="Descrição"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="col-md-3">
+                <div>
+                  <input type="text" class="form-control" placeholder="Company Name" ng-model="vm.job.company">
+                </div>
+                <img class="space" ng-src="{{ vm.previewSource }}" ng-model="vm.job.company_logo" alt="">
+                <div>
+                  <button class="btn btn-primary" ng-click="vm.fileBtn()">Insert image</button>
+                  <input file-preview type="file" id="fileInput" ng-model="vm.job.company_logo" class="hidden" />
+                </div>
+                <div>
+                  <input type="text" class="form-control" placeholder="Company Website" ng-model="vm.job.company_url">
+                </div>
+                <div>
+                  <textarea class="form-control" rows="4" placeholder="How to apply" ng-model="vm.job.how_to_apply"></textarea>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="preview botton">
+            <a ng-click="vm.save()" class="btn btn-primary">Save</a>
+          </div>
+        </panel>
+
+      </div>
+    </div>
+  </div>

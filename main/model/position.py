@@ -14,9 +14,9 @@ class Position(model.Base):
     how_to_apply = ndb.TextProperty(default='')
     company = ndb.StringProperty(default='')
     company_url = ndb.StringProperty(default='')
-    company_logo = ndb.StringProperty(default='')
-    url = ndb.StringProperty(default='')
-    
+    company_logo = ndb.StringProperty(default='', indexed=False)
+    # url = ndb.StringProperty(default='')
+
     PUBLIC_PROPERTIES = [
         "id",
         "created_at",
@@ -28,8 +28,8 @@ class Position(model.Base):
         "company",
         "company_url",
         "company_logo",
-        "url"
+        # "url"
     ]
-    
+
     def to_json(self):
         return self.to_dict(include=Position.get_public_properties())

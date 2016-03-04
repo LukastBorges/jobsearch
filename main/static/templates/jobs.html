@@ -1,0 +1,27 @@
+<div class="row">
+
+  <div class="col-md-4" ng-repeat="job in vm.jobList">
+    <panel class="tiny" ng-click="vm.loadJob(job)" tabindex="{{ $index + 1 }}" ng-keyup="vm.handleEnter($event, job)">
+      <p class="down">{{ job.location}}, {{ vm.moment(job.created_at).fromNow() }}</p>
+
+      <div class="row">
+        <div class="col-md-9">
+          <h5>{{ job.title }}</h5>
+          <h6 class="text-muted">{{ job.company }} - {{ job.type }}</h6>
+        </div>
+        <div class="col-md-3">
+          <img class="right" ng-src="{{ (job.company_logo) ? job.company_logo : 'http://www.webmed.co.za/medical/template/business/images/no-logo.png'}}" alt="">
+          <h6 class="small-text">{{ job.company }}</h6>
+        </div>
+      </div>
+    </panel>
+  </div>
+</div>
+<div class="row space" ng-show="vm.ready === true">
+  <div class="col-md-6 center">
+    <button class="btn btn-primary" ng-click="vm.previousPage()" ng-if="vm.page > 0">Anterior</button>
+  </div>
+  <div class="col-md-6 center">
+    <button class="btn btn-primary" ng-click="vm.nextPage()" ng-if="vm.hasNextPage">Próximo</button>
+  </div>
+</div>

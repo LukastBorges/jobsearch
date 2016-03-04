@@ -20,27 +20,22 @@ from datetime import datetime
 class PositionsAPI(Resource):
     def get(self):
         parser = reqparse.RequestParser()
+        parser.add_argument('cursor', type=ArgumentValidator.create('cursor'))
         parser.add_argument('description')
         parser.add_argument('location')
         args = parser.parse_args()
-        
+
         positions_future = Position.query() \
-            .order(-Position.created_at) \
-            .fetch_page_async(100)
-        
+            .order(-Position.created) \
+            .fetch_page_async(10, start_cursor=args.cursor)
+
         total_count_future = Position.query().count_async(keys_only=True)
         positions, next_cursor, more = positions_future.get_result()
         positions = [p.to_json() for p in positions]
-        positions = filter (
-            lambda x: args.description.lower() in x["description"].lower(),
-            filter (
-                lambda x: args.location.lower() in x["location"].lower(),
-                positions
-            )
-        )
-        total_count = total_count_future.get_result()
-        return positions
-    
+        positions = [p for p in positions if args.description.lower() in p["description"].lower()]
+        positions = [p for p in positions if args.location.lower() in p["location"].lower()]
+        return make_list_response(positions, next_cursor, more, total_count_future.get_result())
+
     def post(self):
         position_to_insert = request.get_json()
         print position_to_insert
@@ -65,7 +60,7 @@ class PositionAPI(Resource):
         if position is None:
             return {}, 404
         return position.to_json()
-    
+
     def put(self, id):
         position_to_insert = request.get_json()
         position = Position.get_by_id(id)
@@ -80,7 +75,7 @@ class PositionAPI(Resource):
         position.url = position_to_insert["url"]
         position.put()
         return position.to_json()
-        
+
     def delete(self, id):
         position = Position.get_by_id(id)
         position.key.delete()

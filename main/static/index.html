@@ -1,44 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>Jobs</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="/app/style/material.min.css">
-  <link rel="stylesheet" href="/app/style/style.css">
-</head>
-<body ng-app="JobsSearch">
-  <div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header mdl-color--primary">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title"><a href="#">JobSearch</a></span>
-        <div class="mdl-layout-spacer"></div>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="#">All Jobs</a>
-          <a class="mdl-navigation__link" href="#/post">Post a Job</a>
-        </nav>
-      </div>
-    </header>
-    <div class="mdl-layout__drawer">
-      <span class="mdl-layout-title">JobSearch</span>
-      <nav class="mdl-navigation">
-        <a class="mdl-navigation__link" href="#">All Jobs</a>
-        <a class="mdl-navigation__link" href="#/post">Post a Job</a>
-      </nav>
-    </div>
-    <main>
-      <ng-view></ng-view>
-    </main>
-  </div>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/app/css/paper-bootstrap.min.css">
+    <link rel="stylesheet" href="/app/css/style.css">
+    <link rel="stylesheet" href="/app/css/switch.css">
+    <link rel="stylesheet" href="/app/css/loading-bar.css">
+    <link rel="stylesheet" href="/app/css/textAngular.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
-  <script src="/app/script/marked.min.js"></script>
-  <script src="/app/script/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.js"></script>
-  <script src="/app/script/app.js"></script>
-  <script src="/app/script/moment.min.js"></script>
-  <script src="/app/script/services.js"></script>
-  <script src="/app/script/routes.js"></script>
-  <script src="/app/script/directives.js"></script>
-  <script src="https://code.getmdl.io/1.1.1/material.min.js"></script>
-</body>
+    <title>JobCircles</title>
+  </head>
+
+  <body class="back-color" ng-app="JobAPP" ng-controller="HomeCtrl as vm">
+      <div ng-include="'/app/templates/navbar.html'"></div>
+
+      <div class="container">
+        <ng-view></ng-view>
+      </div>
+
+
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.js"></script>
+      <script src="//ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.js"></script>
+      <script src="/app/js/moment.min.js"></script>
+      <script src="/app/js/textAngular-rangy.min.js" charset="utf-8"></script>
+      <script src="/app/js/textAngular-sanitize.js" charset="utf-8"></script>
+      <script src="/app/js/textAngular.min.js" charset="utf-8"></script>
+      <script src="/app/js/loading-bar.js"></script>
+      <script src="/app/js/moment.js"></script>
+      <script src="/app/js/app.js"></script>
+      <script src="/app/js/app.route.js"></script>
+      <script src="/app/js/controllers.js"></script>
+      <script src="/app/js/services.js"></script>
+      <script src="/app/js/directives.js"></script>
+    </body>
 </html>

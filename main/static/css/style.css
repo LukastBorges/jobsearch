@@ -1,0 +1,86 @@
+panel {
+  margin-bottom: 30px;
+  position: relative;
+  display: block;
+}
+
+panel.tiny, panel.tiny > .panel {
+  cursor: pointer;
+  height: 220px;
+}
+
+panel .down {
+  position: absolute;
+  bottom: 0px;
+}
+
+panel:before, panel:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+panel.tiny img {
+  max-width: 80px;
+  margin-top: 10px;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+.inset {
+  padding-left: 25px;
+  padding-top: 25px; }
+
+.right {
+  float: right;
+}
+
+.center {
+  text-align: center;
+}
+
+.centered {
+  display: block;
+  margin: 0 auto;
+}
+
+.navbar-brand img {
+  width: 80px;
+  margin-top: -18px;
+}
+
+.space {
+  margin: 20px 0px 20px -10px;
+  padding-left: 10px;
+}
+
+.margin-top {
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
+.back-color {
+    background-color: #ECEFF1;
+}
+
+.preview {
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center center;
+}
+.botton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.small-text {
+  font-weight: 300;
+  font-size: 10px;
+  font-family: sans-serif;;
+
+}

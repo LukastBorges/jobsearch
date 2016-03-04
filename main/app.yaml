@@ -1,4 +1,4 @@
-application: python-gae-position
+application: python-gae-position-2
 version: 1
 runtime: python27
 api_version: 1
@@ -34,7 +34,7 @@ handlers:
   upload: public/(.*\.ttf)
   mime_type: font/ttf
   expiration: 1000d
-  
+
 - url: /app
   static_dir: static/
 
@@ -44,7 +44,7 @@ handlers:
 
 #- url: /index.html
 #  static_dir: static/index.html
-  
+
 #- url: /.*
 #  static_dir: content/
 
