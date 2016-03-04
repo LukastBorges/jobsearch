@@ -1,10 +1,10 @@
-# gae_test
+# jobsearch
 *:beetle: Caution: bugs*
 
 ## Install
 
-    git clone https://github.com/Huijari/gae_test
-    cd gae_test
+    git clone https://github.com/LukastBorges/jobsearch
+    cd jobsearch
     npm install
     gulp run
 
